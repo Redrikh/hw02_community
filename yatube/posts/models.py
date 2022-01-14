@@ -6,7 +6,7 @@ User = get_user_model()
 
 # Класс группы для собщений
 class Group(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(
         max_length=255,
         unique=True,
