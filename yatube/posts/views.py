@@ -21,7 +21,11 @@ def index(request):
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:QUANTITY]
+    title = group.title
+    description = group.description
     context = {
+        'title': title,
+        'description': description,
         'group': group,
         'posts': posts,
     }

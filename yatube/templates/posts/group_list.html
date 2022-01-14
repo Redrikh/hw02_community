@@ -3,19 +3,25 @@
   <title>Group posts</title>
 {% endblock %}
 {% block content %}
-  {% for post in posts %}
-    <ul>
-      <li>
-        Автор: {{ post.author.get_full_name }}
-      </li>
-      <li>
-        Дата публикации: {{ post.pub_date|date:"d E Y" }}
-      </li>
-    </ul>
-    <p>{{ post.text }}</p>    
-    {% if post.group %}
-      <a href="{% url 'posts:post' %}">Go to Yatube index</a>
-    {% endif  %}
-    {% if not forloop.last %}<hr>{% endif %}
-  {% endfor %}
+  <div class="container py-5">
+    <h1>{{ group.title }}</h1>
+    <p>{{ group.description }}</p>
+    <article>
+      {% for post in posts %}
+        <ul>
+          <li>
+            Автор: {{ post.author.get_full_name }}
+          </li>
+          <li>
+            Дата публикации: {{ post.pub_date|date:"d E Y" }}
+          </li>
+        </ul>
+        <p>{{ post.text }}</p>    
+        {% if post.group %}
+          <a href="{% url 'posts:post' %}">Go to Yatube index</a>
+        {% endif  %}
+        {% if not forloop.last %}<hr>{% endif %}
+      {% endfor %}
+    </article>
+  </div>
 {% endblock %}

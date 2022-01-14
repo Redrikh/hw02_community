@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 # Класс группы для собщений
 class Group(models.Model):
     title = models.CharField(max_length=100)
@@ -29,8 +30,8 @@ class Post(models.Model):
     )
     group = models.ForeignKey(
         Group,
-        blank = True,
-        null = True,
+        blank=True,
+        null=True,
         on_delete=models.CASCADE,
-        related_name= 'groups'
+        related_name='groups'
     )
