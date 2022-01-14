@@ -4,8 +4,9 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Post, Group
 
-#Количество выводимых сообщений
+# Количество выводимых сообщений
 QUANTITY = 10
+
 
 # Стартовая страница
 def index(request):
@@ -14,6 +15,7 @@ def index(request):
         'posts': posts,
     }
     return render(request, 'posts/index.html', context)
+
 
 # Страница сообщений группы
 def group_posts(request, slug):

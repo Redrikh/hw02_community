@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-
+# Класс группы для собщений
 class Group(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(
@@ -17,6 +17,8 @@ class Group(models.Model):
     def __srt__(self):
         return self.title
 
+
+# Класс сообщения с указанием группы (можно пустой)
 class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)

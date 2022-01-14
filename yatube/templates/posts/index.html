@@ -1,10 +1,7 @@
-<!-- Дочерний шаблон от base.html -->
 {% extends 'base.html' %}
-<!-- Блок заголовка -->
 {% block title %}
   <title>Yatube</title>
 {% endblock %}
-<!-- Блок выводимого контента -->
 {% block content %}
   {% for post in posts %}
     <ul>
