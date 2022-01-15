@@ -10,5 +10,7 @@
 {% endblock %}
 
 {% block post %}
-  {% include 'includes/post.html' %}
+  {% for post in posts %}
+    {% include 'includes/post.html' %}
+  {% endfor %}
 {% endblock %}

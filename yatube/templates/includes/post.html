@@ -1,25 +1,23 @@
-{% for post in posts %}
-  <article>
-    <ul>
-      <li>
-        Автор: {{ post.author.get_full_name }}
-      </li>
-      <li>
-        Дата публикации: {{ post.pub_date|date:"d E Y" }}
-      </li>
-    </ul>
-    <p>{{ post.text }}</p>
-    {% if post.group %}
-      {% if title %}
-        <a href="{% url 'posts:post' %}">
-          Вернуться на главную страница
-        </a>
-      {% else %}
-        <a href="{% url 'posts:post_group' post.group.slug %}">
-          Bсе записи группы {{ post.group.title }}
-        </a>
-      {% endif  %}
-    {% endif %}
-  </article>
-  {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
+<article>
+  <ul>
+    <li>
+      Автор: {{ post.author.get_full_name }}
+    </li>
+    <li>
+      Дата публикации: {{ post.pub_date|date:"d E Y" }}
+    </li>
+  </ul>
+  <p>{{ post.text }}</p>
+  {% if post.group %}
+    {% if title %}
+      <a href="{% url 'posts:post' %}">
+        Вернуться на главную страница
+      </a>
+    {% else %}
+      <a href="{% url 'posts:post_group' post.group.slug %}">
+        Bсе записи группы {{ post.group.title }}
+      </a>
+    {% endif  %}
+  {% endif %}
+</article>
+{% if not forloop.last %}<hr>{% endif %}
