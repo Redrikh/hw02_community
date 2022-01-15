@@ -5,6 +5,7 @@ from .models import Post, Group
 
 EMPTY_VALUE = '-пусто-'
 
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('pk', 'author', 'text', 'pub_date', 'group',)
     list_editable = ('group',)
