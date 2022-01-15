@@ -1,17 +1,18 @@
 from django.db import models
+
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 
-# Класс группы для собщений
 class Group(models.Model):
+    '''Класс группы для собщений.'''
+
     title = models.CharField(max_length=200)
     slug = models.SlugField(
         max_length=255,
         unique=True,
-        db_index=True,
-        verbose_name='URL'
+        verbose_name='URL',
     )
     description = models.TextField()
 
@@ -19,8 +20,9 @@ class Group(models.Model):
         return self.title
 
 
-# Класс сообщения с указанием группы (можно пустой)
 class Post(models.Model):
+    '''Класс сообщения с указанием группы, можно пустой.'''
+
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
@@ -32,6 +34,9 @@ class Post(models.Model):
         Group,
         blank=True,
         null=True,
-        on_delete=models.CASCADE,
-        related_name='groups'
+        on_delete=models.SET_NULL,
+        related_name='posts_group',
     )
+
+    class Meta:
+        ordering = ('-pub_date',)

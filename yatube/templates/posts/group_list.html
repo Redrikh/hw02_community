@@ -1,27 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}
-  <title>Group posts</title>
+
+{% block headline %}
+  Сообщения группы {{ title }}
 {% endblock %}
-{% block content %}
-  <div class="container py-5">
-    <h1>{{ group.title }}</h1>
-    <p>{{ group.description }}</p>
-    <article>
-      {% for post in posts %}
-        <ul>
-          <li>
-            Автор: {{ post.author.get_full_name }}
-          </li>
-          <li>
-            Дата публикации: {{ post.pub_date|date:"d E Y" }}
-          </li>
-        </ul>
-        <p>{{ post.text }}</p>    
-        {% if post.group %}
-          <a href="{% url 'posts:post' %}">Go to Yatube index</a>
-        {% endif  %}
-        {% if not forloop.last %}<hr>{% endif %}
-      {% endfor %}
-    </article>
-  </div>
+
+{% block head_posts %}
+  <h1>{{ title }}</h1>
+  <p>{{ description }}</p>
+{% endblock %}
+
+{% block post %}
+  {% include 'includes/post.html' %}
 {% endblock %}

@@ -1,26 +1,26 @@
-# posts/views.py
-
 from django.shortcuts import render, get_object_or_404
 
 from .models import Post, Group
 
-# Количество выводимых сообщений
-QUANTITY = 10
+'''Количество выводимых сообщений.'''
+QUANTITY_POSTS = 10
 
 
-# Стартовая страница
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:QUANTITY]
+    '''Стартовая страница.'''
+
+    posts = Post.objects.all()[:QUANTITY_POSTS]
     context = {
         'posts': posts,
     }
     return render(request, 'posts/index.html', context)
 
 
-# Страница сообщений группы
 def group_posts(request, slug):
+    '''Страница сообщений группы.'''
+
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:QUANTITY]
+    posts = group.posts_group.all()[:QUANTITY_POSTS]
     title = group.title
     description = group.description
     context = {
