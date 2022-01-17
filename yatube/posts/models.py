@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class Group(models.Model):
-    '''Класс группы для собщений.'''
+    """Класс группы для собщений."""
 
     title = models.CharField(max_length=200)
     slug = models.SlugField(
@@ -21,7 +21,7 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-    '''Класс сообщения с указанием группы, можно пустой.'''
+    """Класс сообщения с указанием группы, можно пустой."""
 
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
@@ -35,7 +35,7 @@ class Post(models.Model):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        related_name='posts_group',
+        related_name='posts',
     )
 
     class Meta:

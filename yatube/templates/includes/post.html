@@ -9,9 +9,9 @@
   </ul>
   <p>{{ post.text }}</p>
   {% if post.group %}
-    {% if title %}
+    {% if group.title %}
       <a href="{% url 'posts:post' %}">
-        Вернуться на главную страница
+        Вернуться на главную страницy
       </a>
     {% else %}
       <a href="{% url 'posts:post_group' post.group.slug %}">

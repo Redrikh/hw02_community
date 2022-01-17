@@ -1,15 +1,7 @@
 {% extends 'base.html' %}
 
-{% block headline %}
-  Yatube
-{% endblock %}
+{% block headline %}Yatube{% endblock %}
 
 {% block head_posts %}
   <h1>Последние обновления на сайте</h1>
-{% endblock %}
-
-{% block post %}
-  {% for post in posts %}
-    {% include 'includes/post.html' %}
-  {% endfor %}
 {% endblock %}

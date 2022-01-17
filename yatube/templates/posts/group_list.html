@@ -1,16 +1,8 @@
 {% extends 'base.html' %}
 
-{% block headline %}
-  Сообщения группы {{ title }}
-{% endblock %}
+{% block headline %}Сообщения группы {{ group.title }}{% endblock %}
 
 {% block head_posts %}
-  <h1>{{ title }}</h1>
+  <h1>{{ group.title }}</h1>
   <p>{{ description }}</p>
-{% endblock %}
-
-{% block post %}
-  {% for post in posts %}
-    {% include 'includes/post.html' %}
-  {% endfor %}
 {% endblock %}
