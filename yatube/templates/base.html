@@ -19,9 +19,9 @@
       <div class="container py-5">
         {% block head_posts %}
         {% endblock %}
-        {% for post in posts %}
-          {% include 'includes/post.html' %}
-        {% endfor %}
+
+        {% block post %}
+        {% endblock %}
       </div>
     </main>
     {% include 'includes/footer.html' %}

@@ -6,3 +6,9 @@
   <h1>{{ group.title }}</h1>
   <p>{{ description }}</p>
 {% endblock %}
+
+{% block post %}
+  {% for post in posts %}
+    {% include 'includes/post.html' %}
+  {% endfor %}
+{% endblock %}
